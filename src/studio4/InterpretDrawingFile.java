@@ -18,7 +18,26 @@ public class InterpretDrawingFile {
 		JFileChooser chooser = new JFileChooser("resources");
 		chooser.showOpenDialog(null);
 		File f = new File(chooser.getSelectedFile().getPath());
-		Scanner in = new Scanner(f); //making Scanner with a File
+		Scanner in = new Scanner(f); 
+
+		String shapeType = in.next();
+		int redComponent = in.nextInt();
+		int greenComponent = in.nextInt();
+		int blueComponent = in.nextInt();
+		boolean isFilled = in.nextBoolean();
+		double x = in.nextDouble();
+		double y = in.nextDouble();
+		double halfWidth = in.nextDouble();
+		double halfHiegh =in.nextDouble();
+
 		
+			StdDraw.setPenColor(redComponent, greenComponent, blueComponent);
+				if (isFilled) {
+					StdDraw.square(x, y, halfWidth);
+				}
+				else {
+					StdDraw.rectangle(x, y, halfWidth, halfHiegh);
+				}
 	}
+
 }
